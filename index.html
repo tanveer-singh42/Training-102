@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Training TR-102 Report</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', serif;
+      background: url('https://cdn.pixabay.com/photo/2016/11/29/06/15/adult-1868750_1280.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #000;
+      text-align: center;
+      margin: 0;
+    }
+
+    .header {
+      background: #001f3f;
+      color: #fff;
+      padding: 10px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header img {
+      height: 50px;
+    }
+
+    .home-button {
+      background: #004aad;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.88);
+      margin: 30px auto;
+      padding: 30px;
+      max-width: 900px;
+      border-radius: 10px;
+    }
+
+    .button {
+      display: inline-block;
+      background: #003366;
+      color: white;
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      text-decoration: none;
+    }
+
+    .special-button {
+      background-color: #008080;
+      margin: 15px 10px;
+    }
+
+    .project-button {
+      background-color: #800000;
+      margin-top: 20px;
+    }
+
+    h1, h2 {
+      margin-bottom: 5px;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+
+    #pdf-viewer {
+      margin-top: 40px;
+      width: 90%;
+      height: 600px;
+      border: 2px solid #003366;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <!-- Local logo files -->
+    <img src="college-logo.png" alt="College Logo">
+    <a class="home-button" href="#">Home</a>
+    <img src="company-logo.png" alt="Company Logo">
+  </div>
+
+  <div class="container">
+    <h1>Training TR-102 Report</h1>
+    <h2>By Tanveer Singh, URN: <strong>2302700</strong></h2> 
+    <p>Guru Nanak Dev Engineering College, Ludhiana</p>
+    <h2>4 Week Training At</h2>
+    <h2><strong>Sensation Software Solutions, Mohali Chandigarh</strong></h2>
+
+    <!-- Certificate and Final Report Buttons -->
+    <button class="button special-button" onclick="showPDF('certificate.pdf')">Training Certificate</button>
+    <button class="button special-button" onclick="showPDF('final-report.pdf')">Final Report</button>
+
+    <div style="margin-top: 20px;">
+      <!-- Day 1 to Day 20 Buttons -->
+      <script>
+        for (let i = 1; i <= 20; i++) {
+          document.write('<button class="button" onclick="showPDF(\'day' + i + '.pdf\')">Day ' + i + '</button>');
+          if (i % 5 === 0) document.write('<br/>');
+        }
+      </script>
+    </div>
+
+    <!-- Projects Button -->
+    <button class="button project-button" onclick="showPDF('projects.pdf')">Projects</button>
+  </div>
+
+  <!-- PDF Viewer Frame -->
+  <iframe id="pdf-viewer"></iframe>
+
+  <script>
+    function showPDF(fileName) {
+      const viewer = document.getElementById('pdf-viewer');
+      viewer.src = fileName;
+      viewer.style.display = 'block';
+      viewer.scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>
